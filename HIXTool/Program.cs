@@ -30,9 +30,9 @@ namespace HIXTool
             {
                 if (args[0] == "-x")
                 {
-                    string hixPath = args[1];
-                    string harPath = Path.GetDirectoryName(hixPath) + "\\" + Path.GetFileNameWithoutExtension(hixPath) + ".har";
-                    string outDir = Path.GetDirectoryName(hixPath) + "\\" + Path.GetFileNameWithoutExtension(hixPath);
+                    string hixPath = Path.GetFullPath(args[1]);
+                    string harPath = hixPath.Remove(hixPath.Length - 4) + ".har";
+                    string outDir = hixPath.Remove(hixPath.Length - 4);
                     if (File.Exists(hixPath) && File.Exists(harPath))
                     {
                         List<ImageData> data = new List<ImageData>();
